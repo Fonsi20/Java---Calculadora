@@ -20,12 +20,12 @@ import javax.swing.Timer;
 
 public class VideoGame extends JPanel implements ActionListener {
 
-    private final int B_WIDTH = 300;
-    private final int B_HEIGHT = 300;
+    private final int B_WIDTH = 500;
+    private final int B_HEIGHT = 500;
     private final int DOT_SIZE = 10;
-    private final int ALL_DOTS = 900;
-    private final int RAND_POS = 29;
-    private final int DELAY = 140;
+    private final int ALL_DOTS = 2500;
+    private final int RAND_POS = 49;
+    private final int DELAY = 50;
 
     private final int x[] = new int[ALL_DOTS];
     private final int y[] = new int[ALL_DOTS];
@@ -75,7 +75,7 @@ public class VideoGame extends JPanel implements ActionListener {
 
     private void initGame() {
 
-        dots = 3;
+        dots = 50;
 
         for (int z = 0; z < dots; z++) {
             x[z] = 50 - z * 10;
@@ -93,6 +93,7 @@ public class VideoGame extends JPanel implements ActionListener {
         super.paintComponent(g);
 
         doDrawing(g);
+
     }
 
     private void doDrawing(Graphics g) {
@@ -120,12 +121,14 @@ public class VideoGame extends JPanel implements ActionListener {
     private void gameOver(Graphics g) {
 
         String msg = "Game Over";
+        String msg2 = "Press 'R' to reset the game.";
         Font small = new Font("Helvetica", Font.BOLD, 14);
         FontMetrics metr = getFontMetrics(small);
 
         g.setColor(Color.white);
         g.setFont(small);
         g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2);
+        g.drawString(msg2, (B_WIDTH - metr.stringWidth(msg2)) / 2, 540 / 2);
     }
 
     private void checkApple() {
@@ -204,7 +207,6 @@ public class VideoGame extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (inGame) {
-
             checkApple();
             checkCollision();
             move();

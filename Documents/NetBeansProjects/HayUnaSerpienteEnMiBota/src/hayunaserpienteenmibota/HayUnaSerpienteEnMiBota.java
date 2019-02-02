@@ -13,7 +13,7 @@ public class HayUnaSerpienteEnMiBota extends JFrame {
     }
 
     public void initUI() {
-        
+
         add(new VideoGame());
 
         setResizable(false);
@@ -22,7 +22,7 @@ public class HayUnaSerpienteEnMiBota extends JFrame {
         setTitle("Hay una serpiente en mi bota!");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
     }
 
     public static void main(String[] args) {
@@ -31,7 +31,6 @@ public class HayUnaSerpienteEnMiBota extends JFrame {
             JFrame ex = new HayUnaSerpienteEnMiBota();
             ex.setVisible(true);
         });
-
     }
 
 }
